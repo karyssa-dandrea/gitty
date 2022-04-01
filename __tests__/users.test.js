@@ -22,19 +22,12 @@ describe('gitty routes', () => {
     );
   });
 
-  it('should login and redirect users to /aoi/v1/github/dashboard', async () => {
-    const req = await request
+  it('should login and redirect users to /api/v1/github/', async () => {
+    const res = await request
       .agent(app)
       .get('/api/v1/github/login/callback?code=42')
       .redirects(1);
 
-    expect(req.body).toEqual({
-      id: expect.any(String),
-      username: 'nori',
-      email: 'nori@example.com',
-      avatar: expect.any(String),
-      iat: expect.any(Number),
-      exp: expect.any(Number),
-    });
+    expect(res.req.path).toEqual('/api/v1/posts');
   });
 });
