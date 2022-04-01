@@ -30,4 +30,12 @@ describe('gitty routes', () => {
 
     expect(res.req.path).toEqual('/api/v1/posts');
   });
+
+  it('logouts user with delete', async () => {
+    const res = await request.agent(app).delete('/api/v1/github');
+    expect(res.body).toEqual({
+      message: ' signed out',
+      success: true,
+    });
+  });
 });
