@@ -14,6 +14,11 @@ DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    content VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    content VARCHAR(255) NOT NULL
 );
+
+INSERT INTO
+posts (content)
+VALUES
+('tokio is cute'), 
+('tokio and nori are cuties');
